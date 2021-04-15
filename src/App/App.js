@@ -12,8 +12,28 @@ import FavoritList from "../components/FavoritList/FavoritList";
 
 export default function App() {
   const [cards, setCards] = useState(null);
-  // const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [cart, setCart] = useState(
+        JSON.parse(localStorage.getItem("cards")) || []
+    );
+    const [favorites, setfavorites] = useState(
+        JSON.parse(localStorage.getItem("favorites")) || []
+    );
+
+    const addToCart = (code) => {
+        let card = [...cart, code];
+        setCart(card);
+        localStorage.setItem("cart", JSON.stringify(card));
+    };
+
+    const selectFavorite = (isFavorites) => {
+        setfavorites(isFavorites);
+        localStorage.setItem("favorites", JSON.stringify(isFavorites));
+    };
+
+
+
+
 
   useEffect(() => {
     fetch("product.json")
@@ -38,7 +58,12 @@ export default function App() {
       return <div>{"Product list empty!!!"}</div>;
     }
     if (cards) {
-      return <CardList productList={cards} />;
+      return <CardList
+          productList={cards}
+          addToCart={addToCart}
+          favorites={favorites}
+          selectFavorite={selectFavorite}
+      />;
     }
     return null;
   };
@@ -58,13 +83,14 @@ export default function App() {
                       <CartList />
                   </Route>
                   <Route path="/favorites">
-                      <FavoritList />
+                      <FavoritList
+                          productList={cards}
+                          favorites={favorites}
+                          addToCart={addToCart}
+                          selectFavorite={selectFavorite}
+                      />
                   </Route>
-
               </Switch>
-
-
-
           </main>
           <footer>
             <Footer />

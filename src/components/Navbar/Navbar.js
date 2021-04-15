@@ -5,13 +5,13 @@ import {
 import style from "./Navbar.module.scss";
 
 export const Navbar = () => {
+
   return (
     <nav>
       <div className="nav-wrapper  blue-grey darken-3">
         <div className="container">
           <NavLink to='/'>
           <div
-
             className="brand-logo"
             style={{ color: "#ff9100", fontSize: 40, fontWeight: "bold" }}
           >
