@@ -1,0 +1,9 @@
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: rgba(239, 239, 239, 0.87);
+}
+.main {
+  flex: 1 0 auto;
+}

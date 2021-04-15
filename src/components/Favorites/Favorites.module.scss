@@ -1,0 +1,15 @@
+.favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
+.favorite__icon, .favorite__icon_sel {
+  font-size: 40px;
+  color: #ff9100;
+}

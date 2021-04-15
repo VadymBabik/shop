@@ -1,0 +1,97 @@
+[{
+  "id": 1,
+  "productName": "Apple iPhone 12 Pro 128GB Pacific (MGMN3)",
+  "price": 37000,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/7/6/764f8071b21fa3d7b7430ba518665d4d.jpg",
+  "vendorСod": "675415",
+  "color": "Blue"
+},
+{
+  "id": 2,
+  "productName": "Apple iPhone 12 Pro 128GB Gold (MGMM3)",
+  "price": 37500,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/f/0/f08b26b4064f92efff805758096263d6.jpg",
+  "vendorСod": "675376",
+  "color": "Gold"
+},
+{
+  "id": 3,
+  "productName": "Apple iPhone 12 Pro 128GB Graphite (MGMK3)",
+  "price": 35000,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/5/0/5032bdce9349bf5fbdf7db6453fd940d.jpg",
+  "vendorСod": "675414",
+  "color": "Graphite"
+},
+{
+  "id": 4,
+  "productName": "Apple iPhone 12 Pro 128GB Silver (MGML3)",
+  "price": 36500,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/8/d/8d515e4a0b98bb5c151a628aada312a2.jpg",
+  "vendorСod": "675378",
+  "color": "Silver"
+},
+{
+  "id": 5,
+  "productName": "Apple iPhone 12 128GB Black gold (MGJA3)",
+  "price": 31200,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/a/d/adfd7fe609d7f3c8ada9d42d54548377.jpg",
+  "vendorСod": "675348",
+  "color": "Black"
+},
+{
+  "id": 6,
+  "productName": "Apple iPhone 12 128GB Blue gold (MGJE3)",
+  "price": 31400,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/b/a/ba97b2f3e3add08c0e13a6a88ad1f5fe.jpg",
+  "vendorСod": "675357",
+  "color": "Blue"
+},
+{
+  "id": 7,
+  "productName": "Apple iPhone 12 128GB Green gold (MGJF3)",
+  "price": 31800,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/a/1/a18c1ac3074066749ee7aa11ca96817b.jpg",
+  "vendorСod": "675350",
+  "color": "Green"
+},
+{
+  "id": 8,
+  "productName": "Apple iPhone 12 128GB PRODUCT Red (MGJD3)",
+  "price": 32200,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/8/7/87594ff6071c1ce1a038e9a47723301d.jpg",
+  "vendorСod": "675351",
+  "color": "Red"
+},
+{
+  "id": 9,
+  "productName": "Apple iPhone 12 128GB White gold (MGJC3)",
+  "price": 32300,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/4/d/4d90818e9f9008216f8414628c8d2be5.jpg",
+  "vendorСod": "675354",
+  "color": "White"
+},
+{
+  "id": 10,
+  "productName": "Apple iPhone 12 Pro Max 128GB Pacific Blue (MGDA3)",
+  "price": 40100,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/b/d/bd11758a813d4b457ffba622b0a32e6b.jpg",
+  "vendorСod": "675421",
+  "color": "Pacific Blue"
+},
+{
+  "id": 11,
+  "productName": "Apple iPhone 12 Pro Max 128GB Gold white (MGD93)",
+  "price": 40200,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/3/0/30856e09107a8f55a8d8457f829424af.jpg",
+  "vendorСod": "675380",
+  "color": "Gold"
+},
+{
+  "id": 12,
+  "productName": "Apple iPhone 12 Pro Max 128GB Graphite (MGD73)",
+  "price": 40300,
+  "imgUrl": "https://i.citrus.ua/imgcache/size_800/uploads/shop/6/0/60c1b77d2d801fa74d1f71555855edad.jpg",
+  "vendorСod": "675420",
+  "color": "Graphite"
+}
+]
