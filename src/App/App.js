@@ -13,12 +13,8 @@ import FavoritList from "../components/FavoritList/FavoritList";
 export default function App() {
   const [cards, setCards] = useState(null);
   const [error, setError] = useState(null);
-  const [cart, setCart] = useState(
-        JSON.parse(localStorage.getItem("cards")) || []
-    );
-    const [favorites, setfavorites] = useState(
-        JSON.parse(localStorage.getItem("favorites")) || []
-    );
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cards")) || []);
+  const [favorites, setfavorites] = useState(JSON.parse(localStorage.getItem("favorites")) || []);
 
     const addToCart = (code) => {
         let card = [...cart, code];
@@ -30,10 +26,6 @@ export default function App() {
         setfavorites(isFavorites);
         localStorage.setItem("favorites", JSON.stringify(isFavorites));
     };
-
-
-
-
 
   useEffect(() => {
     fetch("product.json")
@@ -80,7 +72,10 @@ export default function App() {
                       {renderContainer()}
                   </Route>
                   <Route path="/cart">
-                      <CartList />
+                      <CartList
+                          productList={cards}
+                          favorites={favorites}
+                      />
                   </Route>
                   <Route path="/favorites">
                       <FavoritList

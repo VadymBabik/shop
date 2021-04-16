@@ -1,7 +1,7 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
 import Card from "../Card/Card";
 import style from "./FavoritList.module.scss";
+import Empty from "../Emty/Emty";
 
 const FavoritList = ({productList, favorites, addToCart, selectFavorite}) => {
 
@@ -14,7 +14,7 @@ const FavoritList = ({productList, favorites, addToCart, selectFavorite}) => {
 
     return (
         <div className={`${style.wrapper} container`}>
-            {favoritesUser.length === 0 ? <FavoritesEmpty/> : favoritesUser.map((product) => {
+            {favoritesUser.length === 0 ? <Empty text={'favorites list is empty'}/> : favoritesUser.map((product) => {
                 return (
                     <Card
                         key={product.id}
@@ -36,16 +36,6 @@ const FavoritList = ({productList, favorites, addToCart, selectFavorite}) => {
     );
 };
 
-const FavoritesEmpty = () => {
-    return (<div>
-            <div className={`${style.favoritesEmpty} center`}>favorites list is empty</div>
-            <NavLink to='/' className={style.toHome}>
-                <i className="material-icons ">keyboard_backspace</i>
-                Back to home page
-                <i className="material-icons">done</i>
-            </NavLink>
-        </div>
-    )
-}
+
 
 export default FavoritList;
