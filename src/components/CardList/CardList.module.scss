@@ -4,3 +4,16 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+.favoritesEmpty{
+  font-size: 30px;
+  color: #ff9100;
+  text-transform: uppercase;
+}
+.toHome{
+  color: #ff9100;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}

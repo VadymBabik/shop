@@ -1,37 +1,74 @@
 import React from "react";
 import Empty from "../Emty/Emty";
-import Card from "../Card/Card";
 import style from "./CartList.module.scss";
 
-const CartList = ({productList, favorites, addToCart, selectFavorite}) => {
-  const favoritesUser = productList.filter(user => {
-    if (favorites.includes(user.vendorСod)) {
+import {Button} from "../Button/Button";
+
+const CartList = ({productList, favorites, addCart, removeOneCart,removeCart}) => {
+  const cartList = productList.filter(e => {
+    if (favorites.includes(e.vendorСod)) {
       return true;
     }
     return false;
   })
 
+const total=()=>{
+  const res = favorites.map((per)=>productList.find((x)=>per===x.vendorСod))
+  let total = res.reduce(function(sum, elem) {
+    return sum + elem.price;
+  }, 0);
+  return total
+}
 
   return (
-      <div className={`${style.wrapper} container`}>
-        {favoritesUser.length === 0 ? <Empty text={'your basket is empty'}/> :
+      <div className={`${style.wrapperCart} container`}>
+        {cartList.length === 0 ?
+            <div className={`${style.wrapper} container`}>
+            <Empty text={'your basket is empty'}/>
+            </div>
+            :
             <ul className="collection with-header">
-              {/*<li className="collection-header"><h4>Your basket</h4></li>*/}
-              <li className="collection-item">
-                <div>
-                  <div className={`${style.cartToCard}`}>
-                  <img className={`${style.img}`} src={'https://i.citrus.ua/imgcache/size_800/uploads/shop/f/0/f08b26b4064f92efff805758096263d6.jpg'} alt={'alt'} />
-                    <div className={'info'}>info</div>
-                    <div className={'calc'}>calc</div>
-                    <div className={'total'}>total</div>
-                    <a href="#!" className="secondary-content"><i className="material-icons">remove_shopping_cart</i></a>
-                  </div>
+              <li className="collection-header"><h4>Your purchases</h4></li>
+              {cartList.map(product => {return(
+                  <li
+                      key={product.id}
+                      className="collection-item">
+                    <div>
+                      <div className={`${style.cartToCard}`}>
+                        <img className={`${style.img}`} src={product.imgUrl} alt={product.productName} />
+                        <div className={'info'}>
+                          <h5 className={`${style.productName} grey-text text-darken-4`}>{product.productName}</h5>
+                          <div className={`${style.code} grey-text text-darken-4`}> {`Code: ${product.vendorСod}`}</div>
+                          <div className={`${style.color} grey-text text-darken-4`}> {`Color: ${product.color}`}</div>
+                          <div className={`${style.price} grey-text text-darken-4`}> {`\u20B4 ${new Intl.NumberFormat("ua-Ua").format(product.price)}`}</div>
+                        </div>
+                        <div className={`${style.calc}`}>
+                          <a
+                              onClick={()=>addCart(product.vendorСod)}
+                              className="btn-flat"><i className={`${style.increment} Tiny material-icons`}>add</i></a>
 
-                </div>
+                          <div className={`${style.value}`}>{favorites.filter(item => item === product.vendorСod).length}</div>
+                          <a
+                              onClick={()=>removeOneCart(product.vendorСod)}
+                              className={`${favorites.filter(item => item === product.vendorСod).length===1 ? "disabled" : null} btn-flat`}><i className={`${style.decrement} Tiny material-icons`}>remove</i></a>
+
+                        </div>
+                        <div className={`${style.total}`}>{`\u20B4 ${new Intl.NumberFormat("ua-Ua").format(product.price*favorites.filter(item => item === product.vendorСod).length)}`}</div>
+                        <i
+                            onClick={()=>removeCart(product.vendorСod)}
+                            className={`${style.remove} material-icons`}>remove_shopping_cart</i>
+                      </div>
+
+                    </div>
+                  </li>
+              )})}
+              <li className={`${style.footer} collection-header`}>
+                <Button text={'checkout'} size={style.checkout} color={'orange accent-3'}/>
+                  <Empty />
+                <h4 className={`${style.totalValue}`}>TOTAL:   {`\u20B4 ${new Intl.NumberFormat("ua-Ua").format(total())}`}</h4>
               </li>
             </ul>
         }
-
       </div>
   );
 };

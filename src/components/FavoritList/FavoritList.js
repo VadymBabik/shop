@@ -1,20 +1,33 @@
 import React from "react";
+// import React, {useEffect} from "react";
 import Card from "../Card/Card";
 import style from "./FavoritList.module.scss";
 import Empty from "../Emty/Emty";
 
 const FavoritList = ({productList, favorites, addToCart, selectFavorite}) => {
 
-    const favoritesUser = productList.filter(user => {
-        if (favorites.includes(user.vendorСod)) {
+    // let favoriteList =[]
+    //     useEffect(() => {
+    //     favoriteList = productList.filter(e => {
+    //         if (favorites.includes(e.vendorСod)) {
+    //             return true;
+    //         }else{
+    //             return false;
+    //         }
+    //     })
+    // },[productList,favorites])
+
+   const favoriteList = productList.filter(e => {
+        if (favorites.includes(e.vendorСod)) {
             return true;
+        }else{
+            return false;
         }
-        return false;
     })
 
     return (
         <div className={`${style.wrapper} container`}>
-            {favoritesUser.length === 0 ? <Empty text={'favorites list is empty'}/> : favoritesUser.map((product) => {
+            {favoriteList.length === 0 ? <Empty text={'favorites list is empty'}/> : favoriteList.map((product) => {
                 return (
                     <Card
                         key={product.id}

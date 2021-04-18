@@ -17,6 +17,8 @@ Button.propTypes = {
   text: PropTypes.string,
 };
 Button.defaultProps = {
-  color: "#ff9100",
+  // color: "#ff9100",
   icon: null,
+  click: null,
+  // size: null,
 };

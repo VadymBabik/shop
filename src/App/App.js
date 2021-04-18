@@ -13,7 +13,7 @@ import FavoritList from "../components/FavoritList/FavoritList";
 export default function App() {
   const [cards, setCards] = useState(null);
   const [error, setError] = useState(null);
-  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cards")) || []);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")) || []);
   const [favorites, setfavorites] = useState(JSON.parse(localStorage.getItem("favorites")) || []);
 
     const addToCart = (code) => {
@@ -21,6 +21,30 @@ export default function App() {
         setCart(card);
         localStorage.setItem("cart", JSON.stringify(card));
     };
+
+
+    const removeOneCart=(code)=> {
+         let card = [...cart];
+         let updateCard = card.filter((item,index)=>{
+             if(index===card.indexOf(code)) {
+                 return false;
+             }return true
+         }
+         )
+        setCart(updateCard)
+        localStorage.setItem("cart", JSON.stringify(updateCard));
+    }
+    const removeCart=(code)=> {
+         let card = [...cart];
+         let updateCard = card.filter((item,)=>{
+             if(item===(code)) {
+                 return false;
+             }return true
+         }
+         )
+        setCart(updateCard)
+        localStorage.setItem("cart", JSON.stringify(updateCard));
+    }
 
     const selectFavorite = (isFavorites) => {
         setfavorites(isFavorites);
@@ -74,7 +98,10 @@ export default function App() {
                   <Route path="/cart">
                       <CartList
                           productList={cards}
-                          favorites={favorites}
+                          favorites={cart}
+                          addCart={addToCart}
+                          removeOneCart={removeOneCart}
+                          removeCart={removeCart}
                       />
                   </Route>
                   <Route path="/favorites">

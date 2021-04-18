@@ -4,6 +4,7 @@ import style from "./Card.module.scss";
 import { Button } from "../Button/Button";
 import Modal from "../Modal/Modal";
 import Favorites from "../Favorites/Favorites";
+// import Foo from "../Stars/Stars";
 
 export default function Card({
   urlImg,
