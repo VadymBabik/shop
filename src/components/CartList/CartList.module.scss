@@ -111,3 +111,20 @@ justify-content: center;
   align-items: center;
   margin-top: 20px;
 }
+
+.modalFooter {
+  padding: 0 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 100px;
+    margin: 0 30px;
+    .l {
+      width: 100px;
+      margin: 0 30px;
+    }
+
+  }
+}

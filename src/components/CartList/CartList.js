@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import Empty from "../Emty/Emty";
 import style from "./CartList.module.scss";
 
 import {Button} from "../Button/Button";
+import Modal from "../Modal/Modal";
 
 const CartList = ({productList, favorites, addCart, removeOneCart,removeCart}) => {
+  const [modal, setModal] = useState(false);
+  const modalActiv = () => setModal(!modal);
   const cartList = productList.filter(e => {
     if (favorites.includes(e.vendorСod)) {
       return true;
@@ -55,13 +58,43 @@ const total=()=>{
                         </div>
                         <div className={`${style.total}`}>{`\u20B4 ${new Intl.NumberFormat("ua-Ua").format(product.price*favorites.filter(item => item === product.vendorСod).length)}`}</div>
                         <i
-                            onClick={()=>removeCart(product.vendorСod)}
+                            onClick={modalActiv}
                             className={`${style.remove} material-icons`}>remove_shopping_cart</i>
                       </div>
-
                     </div>
+                    {modal && (
+                        <Modal
+                            isOpen={modalActiv}
+                            header={"Removing an item from the cart?"}
+                            closeButton={true}
+                            textmodal={"Are you sure you want to remove an item from your cart?"}
+                            actions={
+                              <div className={style.modalFooter}>
+                                <Button
+                                    size={"l"}
+                                    click={() => {
+                                      modalActiv();
+                                      removeCart(product.vendorСod);
+                                    }}
+                                    color={"orange accent-3"}
+                                    text={"OK"}
+                                />
+                                <Button
+                                    size={"l"}
+                                    click={modalActiv}
+                                    color={"orange accent-3"}
+                                    text={"Cancel"}
+                                />
+                              </div>
+                            }
+                        />
+                    )}
                   </li>
-              )})}
+              )
+
+
+
+              })}
               <li className={`${style.footer} collection-header`}>
                 <Button text={'checkout'} size={style.checkout} color={'orange accent-3'}/>
                   <Empty />
@@ -69,7 +102,9 @@ const total=()=>{
               </li>
             </ul>
         }
+
       </div>
+
   );
 };
 export default CartList;
